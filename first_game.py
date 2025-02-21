@@ -71,6 +71,7 @@ class Snake:
         if self.direction == "RIGHT":
             self.head.x += self.size
         self.last_move_time = current_time
+        self.check_collision()
 
     def check_collision(self) -> None:
         """
