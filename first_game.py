@@ -70,8 +70,6 @@ class Snake:
             self.head.x -= self.size
         if self.direction == "RIGHT":
             self.head.x += self.size
-
-        # self.check_collision()
         self.last_move_time = current_time
 
     def check_collision(self) -> None:
@@ -79,7 +77,7 @@ class Snake:
         Checks for collision with apple, itself, or screen boundaries.
         """
         if (
-            # any(self.head.colliderect(part) for part in self.parts[1:])
+            any(self.head.colliderect(part) for part in self.parts[1:])
             self.head.x not in range(int(self.game.screen_size.x))
             or self.head.y not in range(int(self.game.screen_size.y))
         ):
