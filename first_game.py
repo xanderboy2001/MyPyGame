@@ -95,19 +95,16 @@ class Snake:
         Adds a new segment to the snake
         """
         last_part = self.parts[-1]
-        new_pos = pygame.Vector2(last_part.x, last_part.y)
-
+        new_part = pygame.Rect(last_part.topleft, (self.size, self.size))
         if self.direction == "UP":
-            new_pos.y -= self.size
+            new_part.y += self.size
         elif self.direction == "DOWN":
-            new_pos.y += self.size
+            new_part.y -= self.size
         elif self.direction == "LEFT":
-            new_pos.x -= self.size
+            new_part.x += self.size
         elif self.direction == "RIGHT":
-            new_pos.x += self.size
-
-        new_part = Snake(game=self.game, position=new_pos)
-        self.parts.append(new_part.head)
+            new_part.x -= self.size
+        self.parts.append(new_part)
 
     def increase_speed(self):
         """
