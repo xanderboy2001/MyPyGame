@@ -78,7 +78,7 @@ class Snake:
         """
         if (
             any(self.head.colliderect(part) for part in self.parts[1:])
-            self.head.x not in range(int(self.game.screen_size.x))
+            or self.head.x not in range(int(self.game.screen_size.x))
             or self.head.y not in range(int(self.game.screen_size.y))
         ):
             self.game.running = False
